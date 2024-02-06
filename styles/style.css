@@ -1,0 +1,93 @@
+body{
+    background-color: rgb(235, 230, 230);
+}
+
+.inner-container{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    
+    background-color: white;
+}
+.labels{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: white;
+}
+.fields{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: white;
+}
+
+.note{
+    max-height: max-content;
+}
+
+
+
+.heading{
+    box-shadow: 0 0 4px rgba(152, 149, 149, 0.5);
+    margin-right: 300px;
+    margin-left: 300px;
+    background-color: white;
+    margin-top: 100px;
+    padding: 20px;
+}
+
+.upper{
+    background-color: white;
+    
+}
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Use viewport height for full height */
+    background-color: your-desired-color; 
+    color: black;
+
+}
+
+.image{
+    width: 30px;
+    height: 30px;
+    clip-path: circle(40%);
+    object-fit: cover;
+
+}
+#cd{
+    background-color: white;
+}
+.pad{
+    padding: 3%;
+
+
+}
+
+.header{
+    display:flex;
+    padding-left: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+.headerfont{
+    display:flex;
+    flex-direction: column;
+    gap:5px;
+    justify-content: start;
+}
+.text{
+    font-size: 20px;
+
+}
+.text1{
+    font-size: 20px;
+    color: rgb(143, 206, 49);
+}

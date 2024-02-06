@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <div class="header">
+        <div>
+          <img src="/assests/profile-images/logo.png" width="50px" alt="Logo" />
+        </div>
+        <div class="tmp">
+          <div class="headerfont">
+            <h3 class="text1">
+              EMPLOYEE<br />
+              PAYROLL
+            </h3>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="heading">
+      <div class="head">
+        <h2>Employee Payroll Form</h2>
+      </div>
+
+      <div class="inner-container">
+        <div class="labels pad">
+          <div class="size">
+            <label>Name</label>
+          </div>
+          <label>Profile Image</label>
+          <label>Gender</label>
+          <label>Department</label>
+          <label>Salary</label>
+          <label>Start Date</label>
+          <label>Notes</label>
+          <input type="submit" class="button" value="cancel" />
+        </div>
+
+        <div class="fields">
+          <div class="name">
+            <input type="text" />
+          </div>
+
+          <div class="Profile Image">
+            <input type="radio" /><img
+              src="/assests/profile-images/1.png"
+              class="image"
+            />
+            <input type="radio" /><img
+              src="/assests/profile-images/2.png"
+              class="image"
+            />
+            <input type="radio" /><img
+              src="/assests/profile-images/3.png"
+              class="image"
+            />
+            <input type="radio" /><img
+              src="/assests/profile-images/4.png"
+              class="image"
+            />
+          </div>
+
+          <div class="gender">
+            <input type="radio" class="radio-button" name="r1" />
+            <label>Male</label>
+
+            <input type="radio" class="radio-button" name="r1" />
+            <label>Female</label>
+          </div>
+          <div class="department">
+            <input type="checkbox" class="department" name="c1" />
+            <label>HR</label>
+
+            <input type="checkbox" class="department" name="c1" />
+            <label>Sales</label>
+
+            <input type="checkbox" class="department" name="c1" />
+            <label>Finance</label>
+
+            <input type="checkbox" class="department" name="c1" />
+            <label>Engineering</label>
+          </div>
+
+          <div class="salary">
+            <select class="Salary">
+              <option>Select Salary</option>
+              <option>500000</option>
+              <option>600000</option>
+              <option>700000</option>
+              <option>800000</option>
+            </select>
+            <div class="arrow"></div>
+          </div>
+
+          <div class="date">
+            <input type="date" />
+          </div>
+          <div class="note">
+            <textarea name="" id="" cols="30" rows="5">Enter text</textarea>
+          </div>
+
+          <div class="button">
+            <input type="submit" class="button" value="submit" />
+            <input type="reset" class="button" value="reset" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
