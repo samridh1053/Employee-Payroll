@@ -1,0 +1,95 @@
+{
+  "users": [
+    {
+      "id": "d81e",
+      "name": "Samridh Gupta",
+      "gender": "male",
+      "department": [
+        "HR"
+      ],
+      "salary": "500000",
+      "date": "2024-02-09",
+      "note": "hhh"
+    },
+    {
+      "id": "28de",
+      "name": "Uddham Singh",
+      "gender": "female",
+      "department": [
+        "Engineer"
+      ],
+      "salary": "500000",
+      "date": "2024-02-05",
+      "note": "qkwdwbcqbwdcqwdc"
+    },
+    {
+      "id": "4723",
+      "name": "jkjkjkkjkjkjkjkkjk",
+      "gender": "male",
+      "department": [
+        "Sales",
+        "Finance",
+        "Engineer"
+      ],
+      "salary": "800000",
+      "date": "2024-02-21",
+      "note": "hhhhhhhhhhhhhhhh"
+    },
+    {
+      "id": "6d86",
+      "name": "",
+      "gender": "female",
+      "department": [],
+      "salary": "Select Salary",
+      "date": "",
+      "note": ""
+    },
+    {
+      "id": "fa35",
+      "name": "Divyansh",
+      "gender": "male",
+      "department": [
+        "Engineer"
+      ],
+      "salary": "500000",
+      "date": "2024-02-09",
+      "note": "I AM A SUPERSTAR"
+    },
+    {
+      "id": "f3dc",
+      "name": "",
+      "gender": "female",
+      "department": [],
+      "salary": "Select Salary",
+      "date": "",
+      "note": ""
+    },
+    {
+      "id": "a11b",
+      "name": ",jhv,jhbcD",
+      "gender": "male",
+      "department": [],
+      "salary": "500000",
+      "date": "2024-02-12",
+      "note": "I am here"
+    },
+    {
+      "id": "777e",
+      "name": "",
+      "gender": "female",
+      "department": [],
+      "salary": "Select Salary",
+      "date": "",
+      "note": ""
+    },
+    {
+      "id": "c843",
+      "name": "",
+      "gender": "female",
+      "department": [],
+      "salary": "Select Salary",
+      "date": "",
+      "note": ""
+    }
+  ]
+}

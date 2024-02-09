@@ -2,21 +2,26 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="../styles/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    
   </head>
   <body>
+
     <nav>
       <div class="header">
         <div class="logoContainer">
           <img src="../assests/profile-images/logo.png" alt="" />
         </div>
-          <div>
-            <span class="emp-text">EMPLOYEE</span><br />
-            <span class="emp-text emp-payroll" style="color: #42515F;">PAYROLL</span>
-          </div>
+        <div>
+          <span class="emp-text">EMPLOYEE</span><br />
+          <span class="emp-text emp-payroll" style="color: #42515f"
+            >PAYROLL</span
+          >
         </div>
+      </div>
     </nav>
 
     <div class="heading">
@@ -35,12 +40,12 @@
           <label>Salary</label>
           <label>Start Date</label>
           <label>Notes</label>
-          <input type="submit" class="button" value="cancel" />
+          <input type="submit" class="cancel" value="cancel" />
         </div>
 
         <div class="fields">
           <div class="name">
-            <input type="text" />
+            <input type="text" id="name" />
           </div>
 
           <div class="Profile Image">
@@ -63,28 +68,28 @@
           </div>
 
           <div class="gender">
-            <input type="radio" class="radio-button" name="r1" />
+            <input type="radio" class="radio-button" id="gender" name="r1" />
             <label>Male</label>
 
             <input type="radio" class="radio-button" name="r1" />
             <label>Female</label>
           </div>
           <div class="department">
-            <input type="checkbox" class="department" name="c1" />
+            <input type="checkbox" class="department" name="c1" id="dept1"/>
             <label>HR</label>
 
-            <input type="checkbox" class="department" name="c1" />
+            <input type="checkbox" class="department" name="c1" id="dept2" />
             <label>Sales</label>
 
-            <input type="checkbox" class="department" name="c1" />
+            <input type="checkbox" class="department" name="c1" id="dept3"/>
             <label>Finance</label>
 
-            <input type="checkbox" class="department" name="c1" />
+            <input type="checkbox" class="department" name="c1" id="dept4"/>
             <label>Engineering</label>
           </div>
 
           <div class="salary">
-            <select class="Salary">
+            <select class="Salary" id="salary">
               <option>Select Salary</option>
               <option>500000</option>
               <option>600000</option>
@@ -95,18 +100,32 @@
           </div>
 
           <div class="date">
-            <input type="date" />
+            <input type="date" id ="date" />
           </div>
           <div class="note">
-            <textarea name="" id="" cols="30" rows="5">Enter text</textarea>
+            <input type="text" id="note" style="width: 250px; height: 50px;" />
           </div>
 
           <div class="button">
-            <input type="submit" class="button" value="submit" />
+            <input
+              type="submit"
+              id="submitButton"
+              class="subbutton"
+              value="submit"
+            />
             <input type="reset" class="button" value="reset" />
           </div>
         </div>
       </div>
+      <!-- <script>
+        $(document).ready(function() {
+            var sal = $("#salary").val();
+            console.log(sal);
+        });
+    </script> -->
+    
     </div>
+    <!-- <script src="/script/dom.js"></script> -->
+<script src="/script/registration.js"></script>
   </body>
 </html>

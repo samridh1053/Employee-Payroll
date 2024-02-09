@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "install": "^0.13.0",
+    "jquery": "^3.7.1",
+    "json-server": "^1.0.0-alpha.23"
+  },
+  "name": "employee-payroll",
+  "version": "1.0.0",
+  "main": "registration.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "json-server --watch employee-payroll.json"
+
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
