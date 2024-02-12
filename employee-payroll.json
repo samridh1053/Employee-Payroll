@@ -1,15 +1,28 @@
 {
   "users": [
     {
-      "id": "76c2",
+      "name": "Uddha",
+      "gender": "female",
+      "department": [
+        "HR",
+        "Sales"
+      ],
+      "salary": "600000",
+      "date": "2024-03-08",
+      "note": "fdfs",
+      "id": "da3a"
+    },
+    {
       "name": "Samridh Gupta",
       "gender": "male",
       "department": [
-        "HR"
+        "Finance",
+        "Engineer"
       ],
       "salary": "500000",
-      "date": "2024-02-24",
-      "note": "hi"
+      "date": "2024-02-23",
+      "note": "testsadsa",
+      "id": "d26c"
     }
   ]
 }

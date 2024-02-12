@@ -68,7 +68,7 @@ $(document).ready(function () {
                 // Create the header row
                 const headerRow = $("<tr>");
 
-                const headerColumns = ["NAME", "GENDER", "DEPARTMENT", "SALARY", "START DATE", "ACTIONS"];
+                const headerColumns = ["NAME", "GENDER", "DEPARTMENT", "SALARY", "START DATE", "ACTIONS", "ACTIONS"];
 
                 headerColumns.forEach(columnName => {
                     const th = $("<th>").text(columnName);
@@ -96,15 +96,17 @@ $(document).ready(function () {
                     const tdDate = $("<td>").text(user.date);
                     tr.append(tdDate);
 
+
+
                     const deleteIconClass = 'delete'; // Replace with your actual class for the delete icon
 
                     const deleteButton = $("<button class='delete " + deleteIconClass + "' data-userid='" + user.id + "'>🗑️</button>");
-                    const updateButton = $("<button class='update' data-userid='" + user.id + "'>🔄</button>");
                     
                     const tdDelete = $("<td>").append(deleteButton);
+                    const updateButton = $("<button class='update' data-userid='" + user.id + "'>🔄 Update</button>");
                     const tdUpdate = $("<td>").append(updateButton);
-                    
-                    tr.append(tdDelete, tdUpdate);
+                    tr.append(tdUpdate);
+                    tr.append(tdDelete);
 
                     tbody.append(tr);
                 });
@@ -129,6 +131,140 @@ $(document).ready(function () {
         }
     });
 });
+
+$(document).on('click', '.update', function () {
+    var userId = $(this).data('userid');
+
+    // Fetch the user data for the selected user
+    $.ajax({
+        url: "http://localhost:3000/users/" + userId,
+        method: "GET",
+        success: function (userData) {
+            // Open a dialog or form to update the data with pre-filled values
+            // You can use a modal, a form, or any UI element for updating data
+            showUpdateDialog(userData);
+        },
+        error: function (xhr, status, error) {
+            console.error("Error fetching data:", status, error);
+            console.log("Server response:", xhr.responseText);
+        }
+    });
+});
+
+function updateDialog(userData) {
+
+    var modalHtml = `
+        <div id="updateModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Update User Data</h2>
+                <form id="updateForm">
+                    <!-- Add input fields with pre-filled values from userData -->
+                    <label for="updateName">Name:</label>
+                    <input type="text" id="updateName" value="${userData.name}" required>
+                    
+                    <label for="updateGender">Gender:</label>
+                    <input type="radio" id="updateMale" name="updateGender" value="male" ${userData.gender === 'male' ? 'checked' : ''}>
+                    <label for="updateMale">Male</label>
+                    <input type="radio" id="updateFemale" name="updateGender" value="female" ${userData.gender === 'female' ? 'checked' : ''}>
+                    <label for="updateFemale">Female</label>
+                    
+                    <label for="updateDepartment">Department:</label>
+                    <input type="checkbox" id="updateDept1" value="HR" ${userData.department.includes('HR') ? 'checked' : ''}>
+                    <label for="updateDept1">HR</label>
+                    <input type="checkbox" id="updateDept2" value="Sales" ${userData.department.includes('Sales') ? 'checked' : ''}>
+                    <label for="updateDept2">Sales</label>
+                    <input type="checkbox" id="updateDept3" value="Finance" ${userData.department.includes('Finance') ? 'checked' : ''}>
+                    <label for="updateDept3">Finance</label>
+                    <input type="checkbox" id="updateDept4" value="Engineer" ${userData.department.includes('Engineer') ? 'checked' : ''}>
+                    <label for="updateDept4">Engineer</label>
+                    
+                    <label for="updateSalary">Salary:</label>
+                    <input type="text" id="updateSalary" value="${userData.salary}" required>
+                    
+                    <label for="updateDate">Start Date:</label>
+                    <input type="date" id="updateDate" value="${userData.date}" required>
+                    
+                    <label for="updateNote">Note:</label>
+                    <textarea id="updateNote">${userData.note}</textarea>
+
+                    <button type="submit">Update</button>
+                </form>
+            </div>
+        </div>
+    `;
+
+    // Append the modal HTML to the body
+    $('body').append(modalHtml);
+
+    
+$('#updateForm').submit(function (e) {
+    e.preventDefault();
+
+    // Extract updated data from the form
+    var updatedName = $('#updateName').val();
+    var updatedGender = $("input[name='updateGender']:checked").val();
+    var updatedDepartment = [];
+
+    // Iterate through all checkboxes with the name 'updateDepartment'
+    $("#updateDept1, #updateDept2, #updateDept3, #updateDept4").each(function () {
+        if ($(this).is(':checked')) {
+            updatedDepartment.push($(this).val());
+        }
+    });
+
+console.log("Updated Department:", updatedDepartment);
+    var updatedSalary = $('#updateSalary').val();
+    var updatedDate = $('#updateDate').val();
+    var updatedNote = $('#updateNote').val();
+
+    // Create an object with updated data
+    var updatedUserData = {
+        name: updatedName,
+        gender: updatedGender,
+        department: updatedDepartment,
+        salary: updatedSalary,
+        date: updatedDate,
+        note: updatedNote
+        // Add other properties with updated values
+    };
+
+    // Perform the update using an AJAX request
+    $.ajax({
+        url: "http://localhost:3000/users/" + userData.id,
+        method: "PUT", // Use the appropriate HTTP method for updating data
+        data: JSON.stringify(updatedUserData),
+        contentType: "application/json",
+        success: function (data) {
+            console.log("Update successful:", data);
+
+            // Close the modal after successful update
+            $('#updateModal').remove();
+        },
+        error: function (xhr, status, error) {
+            console.error("Error updating data:", status, error);
+            console.log("Server response:", xhr.responseText);
+        }
+    });
+});
+
+    // Add close functionality to the modal
+    $('.close').click(function () {
+        $('#updateModal').remove();
+    });
+}
+
+
+
+
+function showUpdateDialog(userData) {
+    // Implement a function to display a dialog or form with pre-filled values for update
+    // You can use a modal or any UI element to allow the user to update data
+    // For simplicity, let's assume you have a function called updateDialog
+    updateDialog(userData);
+}
+
+
 $(document).on('click', '.delete', function () {
     var userId = $(this).data('userid');
     $.ajax({
@@ -145,26 +281,6 @@ $(document).on('click', '.delete', function () {
     });
 });
 
-$(document).on('click', '.update', function () {
-    var userId = $(this).data('userid');
-    // Implement logic to get updated data from the user (similar to your details function)
-    var updatedData = {}; // Populate this object with the updated data
-
-    $.ajax({
-        url: "http://localhost:3000/users/" + userId,
-        method: "PUT",
-        data: JSON.stringify(updatedData),
-        contentType: "application/json",
-        success: function (data) {
-            console.log("Updated");
-            // Reload the page or update the UI as needed after successful update
-        },
-        error: function (xhr, status, error) {
-            console.error("Error updating data:", status, error);
-            console.log("Server response:", xhr.responseText);
-        }
-    });
-});
 
 
 document.getElementById("submitButton").addEventListener("click", function() {
