@@ -96,8 +96,15 @@ $(document).ready(function () {
                     const tdDate = $("<td>").text(user.date);
                     tr.append(tdDate);
 
-                    const tdActions = $("<td>").text("DELETE");
-                    tr.append(tdActions);
+                    const deleteIconClass = 'delete'; // Replace with your actual class for the delete icon
+
+                    const deleteButton = $("<button class='delete " + deleteIconClass + "' data-userid='" + user.id + "'>🗑️</button>");
+                    const updateButton = $("<button class='update' data-userid='" + user.id + "'>🔄</button>");
+                    
+                    const tdDelete = $("<td>").append(deleteButton);
+                    const tdUpdate = $("<td>").append(updateButton);
+                    
+                    tr.append(tdDelete, tdUpdate);
 
                     tbody.append(tr);
                 });
@@ -122,24 +129,42 @@ $(document).ready(function () {
         }
     });
 });
-
-$(document).on('click', '.delete', function(){
+$(document).on('click', '.delete', function () {
+    var userId = $(this).data('userid');
     $.ajax({
-        url: "http://localhost:3000/users/7691",
+        url: "http://localhost:3000/users/" + userId,
         method: "DELETE",
-        
-        success: function(data) {
+        success: function (data) {
             console.log("delete");
+            // Reload the page or update the UI as needed after successful deletion
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.error("Error fetching data:", status, error);
             console.log("Server response:", xhr.responseText);
         }
     });
+});
 
-})
+$(document).on('click', '.update', function () {
+    var userId = $(this).data('userid');
+    // Implement logic to get updated data from the user (similar to your details function)
+    var updatedData = {}; // Populate this object with the updated data
 
-
+    $.ajax({
+        url: "http://localhost:3000/users/" + userId,
+        method: "PUT",
+        data: JSON.stringify(updatedData),
+        contentType: "application/json",
+        success: function (data) {
+            console.log("Updated");
+            // Reload the page or update the UI as needed after successful update
+        },
+        error: function (xhr, status, error) {
+            console.error("Error updating data:", status, error);
+            console.log("Server response:", xhr.responseText);
+        }
+    });
+});
 
 
 document.getElementById("submitButton").addEventListener("click", function() {

@@ -1,49 +1,15 @@
 {
   "users": [
     {
-      "id": "9433",
+      "id": "76c2",
       "name": "Samridh Gupta",
       "gender": "male",
       "department": [
-        "HR",
-        "Engineer"
+        "HR"
       ],
-      "salary": "600000",
-      "date": "2024-02-29",
+      "salary": "500000",
+      "date": "2024-02-24",
       "note": "hi"
-    },
-    {
-      "id": "d748",
-      "name": "Samridh Gupta",
-      "gender": "male",
-      "department": [
-        "HR"
-      ],
-      "salary": "500000",
-      "date": "2024-02-16",
-      "note": "ok"
-    },
-    {
-      "id": "2aff",
-      "name": "Samridh Gupta",
-      "gender": "male",
-      "department": [
-        "HR"
-      ],
-      "salary": "500000",
-      "date": "2024-02-09",
-      "note": "ok"
-    },
-    {
-      "id": "a374",
-      "name": "Uddham Singh",
-      "gender": "male",
-      "department": [
-        "Finance"
-      ],
-      "salary": "600000",
-      "date": "2026-06-10",
-      "note": "hello world"
     }
   ]
 }
