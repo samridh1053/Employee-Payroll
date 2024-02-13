@@ -1,28 +1,29 @@
 {
   "users": [
     {
-      "name": "Uddha",
-      "gender": "female",
-      "department": [
-        "HR",
-        "Sales"
-      ],
-      "salary": "600000",
-      "date": "2024-03-08",
-      "note": "fdfs",
-      "id": "da3a"
-    },
-    {
-      "name": "Samridh Gupta",
+      "name": "ujjwal",
       "gender": "male",
       "department": [
         "Finance",
         "Engineer"
       ],
-      "salary": "500000",
-      "date": "2024-02-23",
-      "note": "testsadsa",
+      "salary": "5000000",
+      "date": "2024-02-07",
+      "note": "hello ji",
       "id": "d26c"
+    },
+    {
+      "id": "3b6e",
+      "name": "sadasd",
+      "gender": "male",
+      "department": [
+        "HR",
+        "Sales",
+        "Finance"
+      ],
+      "salary": "500000",
+      "date": "",
+      "note": "saad"
     }
   ]
 }

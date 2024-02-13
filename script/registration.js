@@ -1,4 +1,15 @@
 function details(){
+    var nameRegex = /^[a-zA-Z]{3,}\s?[a-zA-Z]*$/; // Allows only letters, at least 3 characters
+
+        var user_name = $(".name").val();
+
+        if (!nameRegex.test(user_name)) {
+            alert('Please enter a valid name with at least 3 letters.');
+            return;
+        }
+
+
+
     var name = $('#name').val();
     var gender = $('#gender').is(':checked');
     var department1 = $('#dept1').is(':checked');
@@ -135,13 +146,12 @@ $(document).ready(function () {
 $(document).on('click', '.update', function () {
     var userId = $(this).data('userid');
 
-    // Fetch the user data for the selected user
+
     $.ajax({
         url: "http://localhost:3000/users/" + userId,
         method: "GET",
         success: function (userData) {
-            // Open a dialog or form to update the data with pre-filled values
-            // You can use a modal, a form, or any UI element for updating data
+    
             showUpdateDialog(userData);
         },
         error: function (xhr, status, error) {
@@ -197,7 +207,7 @@ function updateDialog(userData) {
     // Append the modal HTML to the body
     $('body').append(modalHtml);
 
-    
+
 $('#updateForm').submit(function (e) {
     e.preventDefault();
 
@@ -232,13 +242,13 @@ console.log("Updated Department:", updatedDepartment);
     // Perform the update using an AJAX request
     $.ajax({
         url: "http://localhost:3000/users/" + userData.id,
-        method: "PUT", // Use the appropriate HTTP method for updating data
+        method: "PUT",
         data: JSON.stringify(updatedUserData),
         contentType: "application/json",
         success: function (data) {
             console.log("Update successful:", data);
 
-            // Close the modal after successful update
+        
             $('#updateModal').remove();
         },
         error: function (xhr, status, error) {
@@ -258,9 +268,7 @@ console.log("Updated Department:", updatedDepartment);
 
 
 function showUpdateDialog(userData) {
-    // Implement a function to display a dialog or form with pre-filled values for update
-    // You can use a modal or any UI element to allow the user to update data
-    // For simplicity, let's assume you have a function called updateDialog
+
     updateDialog(userData);
 }
 
@@ -272,7 +280,7 @@ $(document).on('click', '.delete', function () {
         method: "DELETE",
         success: function (data) {
             console.log("delete");
-            // Reload the page or update the UI as needed after successful deletion
+        
         },
         error: function (xhr, status, error) {
             console.error("Error fetching data:", status, error);
